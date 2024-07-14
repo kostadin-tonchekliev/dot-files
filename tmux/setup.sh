@@ -7,9 +7,9 @@ echo "[!] This script is to be run in the same directory of the repository"
 
 echo "[+] Installing tmux for $OSTYPE"
 if [[ "$OSTYPE" == "darwin23" ]]; then
-	brew install tmux
+	brew install tmux yq
 elif [[ "$OSTYPE" == "linux-gnu" ]]; then
-	apt install tmux
+	sudo apt install tmux yq
 fi
 
 echo "[+] Creating the following directories:"
@@ -25,4 +25,4 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 echo "[+] Symlinking the current config to $default_location/tmux/tmux.conf"
 ln -s $(pwd)/config/tmux.conf $default_location/tmux.conf
 
-echo "[!] Setup done, to finalize open a new tmux window and run <prefix> + I"
+echo "[!] Setup done, to finalize open a new tmux window and run Control + B + I"
